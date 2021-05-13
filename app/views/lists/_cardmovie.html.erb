@@ -3,7 +3,7 @@
   <div class="descriptions text-center ">
     <h1><%= movie.title %></h1>
     <p><%= movie.overview %></p>
-    <p><strong><%= Bookmark.find_by(movie_id: movie.id, list_id: list.id).comment %></strong></p>
+    <p><strong>"<%= Bookmark.find_by(movie_id: movie.id, list_id: list.id).comment %>"</strong></p>
     <%= link_to "Delete",
             bookmark_path(Bookmark.find_by(movie_id: movie.id, list_id: list.id)),
             method: :delete,
