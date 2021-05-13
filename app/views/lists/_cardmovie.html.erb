@@ -1,0 +1,18 @@
+<div class="card">
+  <img src=<%= movie.poster_url %>> 
+  <div class="descriptions text-center ">
+    <h1><%= movie.title %></h1>
+    <p><%= movie.overview %></p>
+    <p><strong><%= Bookmark.find_by(movie_id: movie.id, list_id: list.id).comment %></strong></p>
+    <%= link_to "Delete",
+            bookmark_path(Bookmark.find_by(movie_id: movie.id, list_id: list.id)),
+            method: :delete,
+            class: "btn btn-primary",
+            data: { confirm: "Are you sure?" } %>
+    <div class="stars d-flex">
+      <% movie.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

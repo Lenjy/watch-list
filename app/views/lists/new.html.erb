@@ -1,0 +1,21 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Make a new list</h1>
+    <p>Be creative !</p>
+    <%# <%= link_to "return", lists_path, class: "btn btn-primary" %> %>
+  </div>
+</div>
+
+<div class="container">
+  <%= simple_form_for(@list) do |f| %>
+    <div class="mb-3">
+      <%= f.label :name , class: "form-label"%>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.submit %>
+    </div>
+<% end %>
+<div>
+
+<%= link_to "return", lists_path, class: "btn btn-primary" %>
