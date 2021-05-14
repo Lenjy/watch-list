@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   def home
     redirect_to lists_path
   end
-  
+
   def index
     @lists = List.all
   end
@@ -30,6 +30,6 @@ class ListsController < ApplicationController
   private
 
   def params_list
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end
