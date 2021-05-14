@@ -1,9 +1,15 @@
-<h1> Add a new movie to your list</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>');">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <p> add a new movie to your list :</p>
+  </div>
+</div>
+<div class="container">
+  <%= simple_form_for([@list, @bookmark]) do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie, collection: Movie.all, prompt: "Choose a Movie" %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 
-<%= simple_form_for([@list, @bookmark]) do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie, collection: Movie.all, prompt: "Choose a Movie" %>
-  <%= f.button :submit %>
-<% end %>
-
-<%= link_to "return", list_path(@list) %>
+  <%= link_to "return", list_path(@list), class: "btn btn-primary mt-2" %>
+</div>
