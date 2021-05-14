@@ -14,7 +14,9 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    @list = List.where(id: @bookmark.list_id).first
     @bookmark.destroy
+    redirect_to list_path(@list)
   end
 
   private
